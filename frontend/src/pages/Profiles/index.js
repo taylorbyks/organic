@@ -1,9 +1,8 @@
 import React, {useEffect, useState}  from 'react'
-import { Link, useHistory } from 'react-router-dom';
-import { FiPower, FiTrash2 } from 'react-icons/fi'
+import { Link, useHistory } from 'react-router-dom'
+import { FiPower, FiTrash2, FiEdit2 } from 'react-icons/fi'
 
 import api from '../../services/api'
-
 import './styles.css'
 import logo from '../../assets/logo.png'
 
@@ -15,7 +14,7 @@ export default function Profiles() {
     const empresaId = localStorage.getItem('empresaId')
     const empresaName = localStorage.getItem('empresaName')
 
-    useEffect(()=> {api.get('profile', {headers: { Authorization: empresaId,}}).then(response =>{ setTask(response.data) })}, [empresaId])
+    useEffect(()=> {api.get('empresa', {headers: { Authorization: empresaId,}}).then(response =>{ setTask(response.data) })}, [empresaId])
     
     async function handleDeleteIncident(id){
         try {
@@ -29,7 +28,10 @@ export default function Profiles() {
         } catch (err){
             alert('Erro ao deletar caso, tente novamente')
         }
+    }
 
+    function handleGoPageUpdate(id){
+        history.push(`/tarefas/update/${id}`);
     }
 
     function handleLogout(){
@@ -42,7 +44,7 @@ export default function Profiles() {
             <header>
                 <img src={logo} alt="audicon" />
                 <span>{empresaName}</span>
-                <Link className="button" to="/task/new" >Cadastrar nova tarefa</Link>
+                <Link className="button" to="/tarefas/nova" >Cadastrar nova tarefa</Link>
                 <button type="button" onClick={handleLogout}><FiPower size={18} color="#0DA41C" /></button>
             </header>
             <h1>Tarefas Cadastradas</h1>
@@ -58,7 +60,8 @@ export default function Profiles() {
                     <strong>VALOR:</strong>
                     <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(tarefas.value)}</p>
 
-                    <button onClick={() => handleDeleteIncident(tarefas.id)} type="button"><FiTrash2 size={20} color=" rgb(25, 77, 141) " /></button>
+                    <button onClick={() => handleDeleteIncident(tarefas.id)} type="button"><FiTrash2 size={20} color="#0DA41C" /></button>
+                    <button onClick={() => handleGoPageUpdate(tarefas.id)} className="button-update" type="button"><FiEdit2 size={20} color="#0DA41C" /></button>
                 </li>
                 ))}
             </ul>

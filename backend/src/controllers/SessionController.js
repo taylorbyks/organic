@@ -4,7 +4,7 @@ module.exports = {
     async create(request, response) {
         const { id } = request.body
         const empresa = await connection('empresas')
-            .where('id', id)
+            .where('id', id)    
             .select('name')
             .first()
         

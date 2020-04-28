@@ -16,7 +16,7 @@
 }
 
 .login-container section.form form{
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .login-container section.form form h1{
@@ -26,5 +26,10 @@
 
 .login-container section.form img{
     width: 90%;
+    align: center;
+}
+
+.login-container img{
+    width: 57%;
     align: center;
 }

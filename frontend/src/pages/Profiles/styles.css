@@ -45,6 +45,12 @@
     align: center;
 }
 
+.profile-container header span {
+    margin-left: 120px;
+    font-size: 25px;
+}
+
+
 .profile-container ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -86,3 +92,4 @@
     line-height: 21px;
     font-size: 16px;
 }
+

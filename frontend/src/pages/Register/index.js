@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi'
-import logo from '../../assets/logo.png'
 
-import './styles.css'
 import api from '../../services/api'
+import './styles.css'
+import logo from '../../assets/logo.png'
 
 export default function Register() {
     const [name, setName] = useState('')
+    const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
     const [whatsapp, setWhatsApp] = useState('')
     const [city, setCity] = useState('')
@@ -19,7 +20,7 @@ export default function Register() {
         e.preventDefault()
 
         const data = {
-            name, email, whatsapp, city, uf
+            name, password, email, whatsapp, city, uf
         }
 
         const response = await api.post('empresas', data)
@@ -45,6 +46,7 @@ export default function Register() {
                  </section> 
                  <form onSubmit={handleRegister}>
                     <input placeholder="Nome da empresa"  value={name} onChange={e => setName(e.target.value)}/>
+                    <input placeholder="Senha"  value={password} onChange={e => setPassword(e.target.value)}/>
                     <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
                     <input placeholder="WhatsApp" value={whatsapp} onChange={e => setWhatsApp(e.target.value)}/>
                     

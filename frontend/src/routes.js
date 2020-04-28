@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Profiles from './pages/Profiles'
 import Task from './pages/Task'
+import UpdateTask from './pages/TaskUpdate'
 
 export default function Routes(){
     return(
@@ -12,8 +13,9 @@ export default function Routes(){
             <Switch>
                 <Route path="/" exact component={Login} />
                 <Route path="/register" component={Register} />
-                <Route path="/profile" component={Profiles} />
-                <Route path="/task/new" component={Task} />
+                <Route path="/empresa" component={Profiles} />
+                <Route path="/tarefas/nova" component={Task} />
+                <Route path="/tarefas/update/:id" exact component={UpdateTask}/>
             </Switch>
         </BrowserRouter>
     )

@@ -7,17 +7,16 @@ import logoTXT from '../../assets/logoTXT.png'
 import styles from './styles'
 import api from '../../services/api'
 
-export default function tarefas() {
-    const [tarefas, setTasks] = useState([])
+export default function empresas() {
+    const [empresas, setTasks] = useState([])
     const [total, setTotal] = useState(0)
     const [page, setPage] = useState(1)
     const [loading, setLoading] = useState(false)
 
     const navigation = useNavigation()
 
-    function navigateToDetail(tarefas) {
-        navigation.navigate('Detail', {tarefas})
-
+    function navigateToDetail(empresas) {
+        navigation.navigate('Detail', {empresas})
     }
 
     async function loadTasks() {
@@ -25,15 +24,15 @@ export default function tarefas() {
             return 
         }
 
-        if(total > 0 && tarefas.length === total){
+        if(total > 0 && empresas.length === total){
             return 
         }
         setLoading(true)
 
-        const response = await api.get('tarefas', {
+        const response = await api.get('empresas', {
             params: { page }
         })
-        setTasks([...tarefas,...response.data])
+        setTasks([...empresas,...response.data])
         setTotal(response.headers['x-total-count'])
         setPage(page + 1 )
         setLoading(false)
@@ -48,34 +47,33 @@ export default function tarefas() {
             <View style={styles.header}>
                 <Image source={logoTXT} style={styles.img}/>
                 <Text style={styles.headerText}>
-                    Total de <Text style={styles.headerTextBold}>{total} tarefas</Text>.
+                    Total de <Text style={styles.headerTextBold}>{total} empresas</Text>.
                 </Text>
             </View>
 
-            <Text style={styles.title}>Tarefas</Text>
+            <Text style={styles.title}>Empresas</Text>
 
             <FlatList
-                data={tarefas}
+                data={empresas}
                 style={styles.tasksList}
-                keyExtractor={tarefa => String(tarefa.id)}
+                keyExtractor={empresa => String(empresa.id)}
                 showsVerticalScrollIndicator={false}
                 onEndReached={loadTasks}
                 onEndReachedThreshold={0.2}
-                renderItem={({ item: tarefa }) => (
+                renderItem={({ item: empresa }) => (
                     <View style={styles.tasks}>
                         <Text style={styles.tasksProperty}>EMPRESA:</Text>
-                        <Text style={styles.tasksValue}>{tarefa.name}</Text>
+                        <Text style={styles.tasksValue}>{empresa.name}</Text>
 
-                        <Text style={styles.tasksProperty}>TAREFA:</Text>
-                        <Text style={styles.tasksValue}>{tarefa.title}</Text>
+                        <Text style={styles.tasksProperty}>EMAIL:</Text>
+                        <Text style={styles.tasksValue}>{empresa.email}</Text>
 
-                        <Text style={styles.tasksProperty}>VALOR:</Text>
-                        <Text style={styles.tasksValue}>{Intl.NumberFormat
-                            ('pt-BR', { style: 'currency', currency: 'BRL' }).format(tarefa.value)}</Text>
+                        <Text style={styles.tasksProperty}>CIDADE:</Text>
+                        <Text style={styles.tasksValue}>{empresa.city})}</Text>
 
                         <TouchableOpacity
                             style={styles.detailsButton}
-                            onPress={ () => navigateToDetail(tarefa)}
+                            onPress={ () => navigateToDetail(empresa)}
                         >
                             <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
                             <Feather name="arrow-right" size={16} color="#0DA41C" />

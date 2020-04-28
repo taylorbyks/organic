@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi'
-import api from '../../services/api'
 
+import api from '../../services/api'
 import './styles.css'
 import logo from '../../assets/logo.png'
 
@@ -11,6 +11,7 @@ export default function Task() {
     const [description, setDescription] = useState('')
     const [value, setValue] = useState('')
     const empresaId = localStorage.getItem('empresaId')
+    
     const history = useHistory()
 
     async function handleTask(e){
@@ -25,7 +26,7 @@ export default function Task() {
                     Authorization: empresaId,
                 }
             })
-            history.push('/profile')
+            history.push('/empresa')
         } catch (err) {
         alert('Erro tente novamente')
         }
@@ -39,7 +40,7 @@ export default function Task() {
                 
                     <h1>Cadastrar nova tarefa</h1>
                     <p>Faça o cadastro de uma nova tarefa</p>
-                    <Link className="back-link" to="/profiles"><FiArrowLeft size={16} color="#00000" />Voltar para a pagina inicial</Link>
+                    <Link className="back-link" to="/empresa"><FiArrowLeft size={16} color="#00000" />Voltar para a pagina inicial</Link>
                  </section> 
                  <form onSubmit={handleTask}>
                     <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Nome" />
@@ -50,6 +51,5 @@ export default function Task() {
                  </form>
             </div>
         </div>
-        
     )
 }
