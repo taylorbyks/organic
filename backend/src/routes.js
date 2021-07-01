@@ -1,81 +1,51 @@
 const express = require('express')
-const { celebrate, Segments, Joi } = require('celebrate');
+const { celebrate, Segments, Joi } = require('celebrate')
 
-const EmpresaController = require('./controllers/EmpresaController')
-const TarefaController = require('./controllers/TarefaController')
+const CompanyController = require('./controllers/CompanyController')
+const TaskController = require('./controllers/TaskController')
 const ProfileController = require('./controllers/ProfileController')
 const SessionController = require('./controllers/SessionController')
 
 const routes = express.Router()
 
-routes.post('/sessions', celebrate({
-    [Segments.BODY]: Joi.object().keys({
-        id: Joi.required()
-    })
-}), SessionController.create)
+routes.post('/sessions', SessionController.create)
 
+routes.get('/companies', CompanyController.index)
 
-routes.get('/empresas', EmpresaController.index)
+routes.post('/companies', CompanyController.create)
 
-routes.post('/empresas', /*celebrate({
-    [Segments.BODY]: Joi.object().keys({
-        name: Joi.string().required(),
-        email: Joi.string().required().email(),
-        whatsapp: Joi.number().required().min(10).max(11),
-        city: Joi.string().required(),
-        uf: Joi.string().required().length(2)
-    })
-}),*/ EmpresaController.create)
+routes.get('/company', ProfileController.index)
 
+routes.get('/tasks', TaskController.index)
 
-routes.get('/empresa', /*celebrate({
+routes.post(
+  '/tasks',
+  celebrate({
     [Segments.HEADERS]: Joi.object({
-        authorization: Joi.string().required()
-    }).unknown()
-}),*/ ProfileController.index)
-
-
-routes.get('/tarefas', /*celebrate({
-    [Segments.QUERY]: Joi.object({
-        page: Joi.number()
-    })
-}),*/ TarefaController.index)
-
-routes.post('/tarefas',  celebrate({
-    [Segments.HEADERS]: Joi.object({
-        authorization: Joi.string().required()
+      authorization: Joi.string().required(),
     }).unknown(),
     [Segments.BODY]: Joi.object({
-        title: Joi.string().required(),
-        description: Joi.string().required(),
-        value: Joi.number()
-    })
-}), TarefaController.create)
+      title: Joi.string().required(),
+      description: Joi.string().required(),
+      value: Joi.number(),
+    }),
+  }),
+  TaskController.create
+)
 
+//Recuperar tasks individuais
+routes.get('/tasks/:id', TaskController.indexOne)
 
-//Recuperar tarefas individuais 
-routes.get('/tarefas/:id', /*celebrate({
+routes.delete(
+  '/tasks/:id',
+  celebrate({
     [Segments.PARAMS]: Joi.object().keys({
-        id: Joi.number().required()
-    })
-}),*/ TarefaController.indexOne);
+      id: Joi.number().required(),
+    }),
+  }),
+  TaskController.delete
+)
 
-routes.delete('/tarefas/:id', celebrate({
-    [Segments.PARAMS]: Joi.object().keys({
-        id: Joi.number().required()
-    })
-}), TarefaController.delete);
-
-routes.put('/tarefas/:id',/* celebrate({
-    [Segments.PARAMS]: Joi.object().keys({
-        id: Joi.number().required
-    })
-}),*/ TarefaController.update);
+routes.put('/tasks/:id', TaskController.update)
 
 module.exports = routes
- 
-
-
-
-
-

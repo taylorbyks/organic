@@ -10,6 +10,7 @@ export default function Register() {
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
+    const [cnpj, setCnpj] = useState('')
     const [whatsapp, setWhatsApp] = useState('')
     const [city, setCity] = useState('')
     const [uf, setUf] = useState('')
@@ -20,7 +21,7 @@ export default function Register() {
         e.preventDefault()
 
         const data = {
-            name, password, email, whatsapp, city, uf
+            name, password, email, cnpj, whatsapp, city, uf
         }
 
         const response = await api.post('empresas', data)
@@ -47,7 +48,8 @@ export default function Register() {
                  <form onSubmit={handleRegister}>
                     <input placeholder="Nome da empresa"  value={name} onChange={e => setName(e.target.value)}/>
                     <input placeholder="Senha"  value={password} onChange={e => setPassword(e.target.value)}/>
-                    <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
+                    <input placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
+                    <input type="cnpj" placeholder="Cnpj" value={cnpj} onChange={e => setCnpj(e.target.value)}/>
                     <input placeholder="WhatsApp" value={whatsapp} onChange={e => setWhatsApp(e.target.value)}/>
                     
                     <div className="input-group">
