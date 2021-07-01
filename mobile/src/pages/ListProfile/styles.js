@@ -2,75 +2,73 @@ import { StyleSheet } from 'react-native'
 import Constants from 'expo-constants'
 
 export default StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingHorizontal: 24,
-        paddingTop: Constants.statusBarHeight + 20,
-    },
-    
-    img:{
-         width: 148,
-         height: 18
-    },
+  container: {
+    flex: 1,
+    paddingHorizontal: 24,
+    paddingTop: Constants.statusBarHeight + 20,
+  },
 
-   header:{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-   },
+  img: {
+    width: 148,
+    height: 18,
+  },
 
-   headerText:{
-       fontSize: 15,
-       color: '#737380'
-   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
 
-   headerTextBold: {
-        fontWeight: 'bold'
-   },
+  headerText: {
+    fontSize: 15,
+    color: '#737380',
+  },
 
-   title:{
-        fontSize: 32,
-        marginBottom: 0,
-        marginTop: 30,
-        color: '#13131a',
-        fontWeight: 'bold'
-   },
+  headerTextBold: {
+    fontWeight: 'bold',
+  },
 
-   tasksList:{
-        marginTop: 10
-   },
+  title: {
+    fontSize: 32,
+    marginBottom: 0,
+    marginTop: 30,
+    color: '#13131a',
+    fontWeight: 'bold',
+  },
 
-   tasks:{
-       padding: 24,
-       borderRadius: 8,
-       backgroundColor: '#FFF',
-       marginBottom: 16
-   },
+  tasksList: {
+    marginTop: 10,
+  },
 
-   tasksProperty:{
-        fontSize: 14,
-        color: '#41414d',
-        fontWeight: 'bold'
-   },
+  tasks: {
+    padding: 24,
+    borderRadius: 8,
+    backgroundColor: '#FFF',
+    marginBottom: 16,
+  },
 
-   tasksValue:{
-        marginTop: 8,
-        fontSize: 15,
-        marginBottom: 24,
-        color: '#737380'
-   },
+  tasksProperty: {
+    fontSize: 14,
+    color: '#41414d',
+    fontWeight: 'bold',
+  },
 
-   detailsButton:{
-         flexDirection: 'row',
-         justifyContent: 'space-between',
-         alignItems: 'center'
+  tasksValue: {
+    marginTop: 8,
+    fontSize: 15,
+    marginBottom: 24,
+    color: '#737380',
+  },
 
-   },
+  detailsButton: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
 
-   detailsButtonText:{
-      color: '#0DA41C' ,
-      fontSize: 15,
-      fontWeight: 'bold' 
-   }
-
+  detailsButtonText: {
+    color: '#0DA41C',
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
 })

@@ -10,14 +10,14 @@ import ListProfile from './pages/ListProfile'
 const AppStack = createStackNavigator()
 
 export default function Routes() {
-    return(
-        <NavigationContainer>
-            <AppStack.Navigator screenOptions={{ headerShown: false }}> 
-                <AppStack.Screen name="Home" component={Home} /> 
-                <AppStack.Screen name="Tasks" component={Tasks} />
-                <AppStack.Screen name="Detail" component={Detail} />
-                <AppStack.Screen name="ListProfile" component={ListProfile} />
-            </AppStack.Navigator>
-        </NavigationContainer>
-    )
+  return (
+    <NavigationContainer>
+      <AppStack.Navigator screenOptions={{ headerShown: false }}>
+        <AppStack.Screen name="Home" component={Home} />
+        <AppStack.Screen name="Tasks" component={Tasks} />
+        <AppStack.Screen name="Detail" component={Detail} />
+        <AppStack.Screen name="ListProfile" component={ListProfile} />
+      </AppStack.Navigator>
+    </NavigationContainer>
+  )
 }

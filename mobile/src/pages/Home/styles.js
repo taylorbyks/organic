@@ -2,95 +2,95 @@ import { StyleSheet } from 'react-native'
 import Constants from 'expo-constants'
 
 export default StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingHorizontal: 24,
-        paddingTop: Constants.statusBarHeight + 20,
-    },
-    
-    containerButton: {
-        flex: 1,
-        paddingTop: Constants.statusBarHeight + 20,
-    },
-    
-    img:{
-         width: 148,
-         height: 18
-    },
+  container: {
+    flex: 1,
+    paddingHorizontal: 24,
+    paddingTop: Constants.statusBarHeight + 20,
+  },
 
-   header:{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-   },
+  containerButton: {
+    flex: 1,
+    paddingTop: Constants.statusBarHeight + 20,
+  },
 
-   headerText:{
-       fontSize: 15,
-       color: '#737380'
-   },
+  img: {
+    width: 148,
+    height: 18,
+  },
 
-   headerTextBold: {
-        fontWeight: 'bold'
-   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
 
-   title:{
-        fontSize: 32,
-        marginBottom: 0,
-        marginTop: 30,
-        color: '#13131a',
-        fontWeight: 'bold'
-   },
+  headerText: {
+    fontSize: 15,
+    color: '#737380',
+  },
 
-   tasksList:{
-        marginTop: 10
-   },
+  headerTextBold: {
+    fontWeight: 'bold',
+  },
 
-   tasks:{
-       padding: 24,
-       borderRadius: 8,
-       backgroundColor: '#FFF',
-       marginBottom: 16
-   },
+  title: {
+    fontSize: 32,
+    marginBottom: 0,
+    marginTop: 30,
+    color: '#13131a',
+    fontWeight: 'bold',
+  },
 
-   tasksProperty:{
-        fontSize: 19,
-        color: '#41414d',
-        fontWeight: 'bold'
-   },
+  tasksList: {
+    marginTop: 10,
+  },
 
-   tasksValue:{
-        marginTop: 8,
-        fontSize: 20,
-        marginBottom: 24,
-        color: '#0DA41C'
-   },
-   
-   listButton:{
-        flexDirection: 'column',
-        paddingTop: 30,
-        alignItems: 'flex-start',
-        padding: 16,
-        borderRadius: 8,
-        backgroundColor: '#FFF',
-        marginBottom: 16,
-        width: 130,
-        flexWrap: 'wrap'
-   },
+  tasks: {
+    padding: 24,
+    borderRadius: 8,
+    backgroundColor: '#FFF',
+    marginBottom: 16,
+  },
 
-   listButtonMax:{
-        flexDirection: 'column',
-        paddingTop: 30,
-        alignItems: 'flex-start',
-        padding: 16,
-        borderRadius: 8,
-        backgroundColor: '#FFF',
-        marginBottom: 16,
-        flexWrap: 'wrap'
-    },
+  tasksProperty: {
+    fontSize: 19,
+    color: '#41414d',
+    fontWeight: 'bold',
+  },
 
-   detailsButtonText:{
-      color: '#0DA41C' ,
-      fontSize: 15,
-      fontWeight: 'bold' 
-   }
+  tasksValue: {
+    marginTop: 8,
+    fontSize: 20,
+    marginBottom: 24,
+    color: '#0DA41C',
+  },
+
+  listButton: {
+    flexDirection: 'column',
+    paddingTop: 30,
+    alignItems: 'flex-start',
+    padding: 16,
+    borderRadius: 8,
+    backgroundColor: '#FFF',
+    marginBottom: 16,
+    width: 130,
+    flexWrap: 'wrap',
+  },
+
+  listButtonMax: {
+    flexDirection: 'column',
+    paddingTop: 30,
+    alignItems: 'flex-start',
+    padding: 16,
+    borderRadius: 8,
+    backgroundColor: '#FFF',
+    marginBottom: 16,
+    flexWrap: 'wrap',
+  },
+
+  detailsButtonText: {
+    color: '#0DA41C',
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
 })

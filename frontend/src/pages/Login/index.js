@@ -52,7 +52,7 @@ export default function Login() {
           </button>
           <Link className="back-link" to="/register">
             <FiLogIn size={16} color="#00000" />
-            Cadastrar uma nova company
+            Criar uma conta
           </Link>
         </form>
       </section>

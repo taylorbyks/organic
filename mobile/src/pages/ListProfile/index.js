@@ -7,80 +7,77 @@ import logoTXT from '../../assets/logoTXT.png'
 import styles from './styles'
 import api from '../../services/api'
 
-export default function empresas() {
-    const [empresas, setTasks] = useState([])
-    const [total, setTotal] = useState(0)
-    const [page, setPage] = useState(1)
-    const [loading, setLoading] = useState(false)
+export default function companies() {
+  const [companies, setTasks] = useState([])
+  const [total, setTotal] = useState(0)
+  const [page, setPage] = useState(1)
+  const [loading, setLoading] = useState(false)
 
-    const navigation = useNavigation()
+  const navigation = useNavigation()
 
-    function navigateToDetail(empresas) {
-        navigation.navigate('Detail', {empresas})
+  function navigateToDetail(companies) {
+    navigation.navigate('Detail', { companies })
+  }
+
+  async function loadTasks() {
+    if (loading) {
+      return
     }
 
-    async function loadTasks() {
-        if(loading){
-            return 
-        }
-
-        if(total > 0 && empresas.length === total){
-            return 
-        }
-        setLoading(true)
-
-        const response = await api.get('empresas', {
-            params: { page }
-        })
-        setTasks([...empresas,...response.data])
-        setTotal(response.headers['x-total-count'])
-        setPage(page + 1 )
-        setLoading(false)
+    if (total > 0 && companies.length === total) {
+      return
     }
+    setLoading(true)
 
-    useEffect(() => {
-        loadTasks()
-    }, [])
+    const response = await api.get('companies', {
+      params: { page },
+    })
+    setTasks([...companies, ...response.data])
+    setTotal(response.headers['x-total-count'])
+    setPage(page + 1)
+    setLoading(false)
+  }
 
-    return (
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <Image source={logoTXT} style={styles.img}/>
-                <Text style={styles.headerText}>
-                    Total de <Text style={styles.headerTextBold}>{total} empresas</Text>.
-                </Text>
-            </View>
+  useEffect(() => {
+    loadTasks()
+  }, [])
 
-            <Text style={styles.title}>Empresas</Text>
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Image source={logoTXT} style={styles.img} />
+        <Text style={styles.headerText}>
+          Total de <Text style={styles.headerTextBold}>{total} companies</Text>.
+        </Text>
+      </View>
 
-            <FlatList
-                data={empresas}
-                style={styles.tasksList}
-                keyExtractor={empresa => String(empresa.id)}
-                showsVerticalScrollIndicator={false}
-                onEndReached={loadTasks}
-                onEndReachedThreshold={0.2}
-                renderItem={({ item: empresa }) => (
-                    <View style={styles.tasks}>
-                        <Text style={styles.tasksProperty}>EMPRESA:</Text>
-                        <Text style={styles.tasksValue}>{empresa.name}</Text>
+      <Text style={styles.title}>Empresas</Text>
 
-                        <Text style={styles.tasksProperty}>EMAIL:</Text>
-                        <Text style={styles.tasksValue}>{empresa.email}</Text>
+      <FlatList
+        data={companies}
+        style={styles.tasksList}
+        keyExtractor={(company) => String(company.id)}
+        showsVerticalScrollIndicator={false}
+        onEndReached={loadTasks}
+        onEndReachedThreshold={0.2}
+        renderItem={({ item: company }) => (
+          <View style={styles.tasks}>
+            <Text style={styles.tasksProperty}>EMPRESA:</Text>
+            <Text style={styles.tasksValue}>{company.name}</Text>
 
-                        <Text style={styles.tasksProperty}>CIDADE:</Text>
-                        <Text style={styles.tasksValue}>{empresa.city})}</Text>
+            <Text style={styles.tasksProperty}>EMAIL:</Text>
+            <Text style={styles.tasksValue}>{company.email}</Text>
 
-                        <TouchableOpacity
-                            style={styles.detailsButton}
-                            onPress={ () => navigateToDetail(empresa)}
-                        >
-                            <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
-                            <Feather name="arrow-right" size={16} color="#0DA41C" />
-                        </TouchableOpacity>
-                    </View>
-                )}
-            />
-        </View>
-    );
+            <Text style={styles.tasksProperty}>CIDADE:</Text>
+            <Text style={styles.tasksValue}>{company.city})</Text>
+
+            <TouchableOpacity style={styles.detailsButton} onPress={() => navigateToDetail(company)}>
+              <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
+              <Feather name="arrow-right" size={16} color="#0DA41C" />
+            </TouchableOpacity>
+          </View>
+        )}
+      />
+    </View>
+  )
 }
