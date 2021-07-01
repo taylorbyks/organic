@@ -1,55 +1,53 @@
-.update-tarefa-container{
-    width: 100%;
-    max-width: 1120px;
-    height: 100vh;
-    margin: 0 auto;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.update-task-container {
+  width: 100%;
+  max-width: 1120px;
+  height: 100vh;
+  margin: 0 auto;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.update-tarefa-container .content{
-    width: 100%;
-    padding: 96px;
-    background: #f0f0f5;
-    box-shadow: 0 0 100px rgba(0,0,0,0.1);
-    border-radius: 8px;
+.update-task-container .content {
+  width: 100%;
+  padding: 96px;
+  background: #f0f0f5;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.update-tarefa-container .content section{
-    width: 100%;
-    max-width: 380px;
+.update-task-container .content section {
+  width: 100%;
+  max-width: 380px;
 }
 
-.update-tarefa-container .content section h1{
-    margin: 64px 0 32px;
-    font-size: 32px;
+.update-task-container .content section h1 {
+  margin: 64px 0 32px;
+  font-size: 32px;
 }
 
-.update-tarefa-container .content section p{
-    font-size: 18px;
-    color: #737380;
-    line-height: 32px;
+.update-task-container .content section p {
+  font-size: 18px;
+  color: #737380;
+  line-height: 32px;
 }
 
-.update-tarefa-container .content form{
-    width: 100%;
-    max-width: 450px;
+.update-task-container .content form {
+  width: 100%;
+  max-width: 450px;
 }
 
-.update-tarefa-container .content form input,
-.update-tarefa-container .content form textarea{
-    margin-top: 8px;
-    
+.update-task-container .content form input,
+.update-task-container .content form textarea {
+  margin-top: 8px;
 }
 
-.update-tarefa-container .content section img{
-    width: 80%;
-    align: center;
+.update-task-container .content section img {
+  width: 80%;
+  align: center;
 }
