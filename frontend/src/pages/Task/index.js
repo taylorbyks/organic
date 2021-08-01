@@ -22,11 +22,16 @@ export default function Task() {
       description,
       value,
     }
+
+
+    console.log(companyId);
+
+
     try {
       await api.post('tasks', data, {
         headers: {
           Authorization: companyId,
-        },
+        }
       })
       history.push('/company')
     } catch (err) {

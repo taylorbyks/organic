@@ -47,14 +47,14 @@ export default function Register() {
           <img src={logo} alt="audicon" />
 
           <h1>Cadastro</h1>
-          <p>Faça o cadastro de uma nova company</p>
+          <p>Faça o cadastro de uma nova empresa</p>
           <Link className="back-link" to="/">
             <FiArrowLeft size={16} color="#00000" />
             Ja tenho cadastro
           </Link>
         </section>
         <form onSubmit={handleRegister}>
-          <input placeholder="Nome da company" value={name} onChange={(e) => setName(e.target.value)} />
+          <input placeholder="Nome da empresa" value={name} onChange={(e) => setName(e.target.value)} />
           <input type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} />
           <input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
           <input type="cnpj" placeholder="Cnpj" value={cnpj} onChange={(e) => setCnpj(e.target.value)} />

@@ -73,7 +73,7 @@ export default StyleSheet.create({
     borderRadius: 8,
     backgroundColor: '#FFF',
     marginBottom: 16,
-    width: 130,
+    width: 170,
     flexWrap: 'wrap',
   },
 

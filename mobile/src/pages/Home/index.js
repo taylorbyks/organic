@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { View, FlatList, Image, Text, TouchableOpacity } from 'react-native'
-import { Feather } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
 
 import styles from './styles'
@@ -8,7 +7,7 @@ import logoTXT from '../../assets/logoTXT.png'
 import api from '../../services/api'
 
 export default function Detail() {
-  const [tarefas, setTasks] = useState([])
+  const [tasks, setTasks] = useState([])
   const [total, setTotal] = useState(0)
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(false)
@@ -19,15 +18,15 @@ export default function Detail() {
       return
     }
 
-    if (total > 0 && tarefas.length === total) {
+    if (total > 0 && tasks.length === total) {
       return
     }
     setLoading(true)
 
-    const response = await api.get('tarefas', {
+    const response = await api.get('tasks', {
       params: { page },
     })
-    setTasks([...tarefas, ...response.data])
+    setTasks([...tasks, ...response.data])
     setTotal(response.headers['x-total-count'])
     setPage(page + 1)
     setLoading(false)
@@ -49,7 +48,7 @@ export default function Detail() {
         </TouchableOpacity>
         <TouchableOpacity style={styles.listButton} onPress={() => navigation.navigate('ListProfile')}>
           <Text style={styles.tasksProperty}>Empresas</Text>
-          <Text style={styles.tasksValue}>{total} tarefas</Text>
+          <Text style={styles.tasksValue}>{total} empresas</Text>
         </TouchableOpacity>
       </View>
     </View>
