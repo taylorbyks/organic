@@ -12,7 +12,7 @@ export default function Detail() {
   const route = useRoute()
 
   const tasks = route.params.tasks
-  const message = `Olá ${tasks.name} estou entrando em contato, pois gostaria de ajudar na task "${tasks.title}"`
+  const message = `Olá ${tasks.name} estou entrando em contato, pois gostaria de ajudar na tarefa "${tasks.title}"`
 
   function navigateBack() {
     navigation.goBack()

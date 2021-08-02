@@ -49,7 +49,7 @@ export default function Profiles() {
         <img src={logo} alt="audicon" />
         <span>{companyName}</span>
         <Link className="button" to="/tasks/nova">
-          Cadastrar nova task
+          Cadastrar nova Tarefa
         </Link>
         <button type="button" onClick={handleLogout}>
           <FiPower size={18} color="#0DA41C" />

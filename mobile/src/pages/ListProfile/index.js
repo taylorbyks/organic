@@ -47,7 +47,7 @@ export default function companies() {
       <View style={styles.header}>
         <Image source={logoTXT} style={styles.img} />
         <Text style={styles.headerText}>
-          Total de <Text style={styles.headerTextBold}>{total} companies</Text>.
+          Total de <Text style={styles.headerTextBold}>{total} empresas</Text>.
         </Text>
       </View>
 
